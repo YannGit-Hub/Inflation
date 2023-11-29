@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Accueil</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Historique des Produits</h1>
+        <table id="product-table">
+            <tr>
+                <th>Nom du Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Date</th>
+                <th>Action</th> <!-- Nouvelle colonne pour le bouton Supprimer -->
+            </tr>
+            {% for produit in produits %}
+            <tr>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.quantite }}</td>
+                <td>{{ produit.date }}</td>
+                <td><button class="delete-button">Supprimer</button></td> <!-- Bouton Supprimer -->
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/ajouter_produit" class="add-button">Ajouter un Produit</a>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
